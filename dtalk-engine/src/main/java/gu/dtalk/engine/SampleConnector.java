@@ -36,6 +36,7 @@ import static gu.dtalk.engine.DeviceUtils.DEVINFO_PROVIDER;
  */
 public class SampleConnector implements IMessageAdapter<String>, RequestValidator {
 	private static final Logger logger = LoggerFactory.getLogger(SampleConnector.class);
+	/** DTALK连接侦听器容器 */
 	private final ConnectProbers probers = new ConnectProbers();
 	private static class SingletonTimer{
 		private static final Timer instnace = new Timer(true);
@@ -64,6 +65,7 @@ public class SampleConnector implements IMessageAdapter<String>, RequestValidato
 		@Override
 		public void apply(Channel<JSONObject> channel) {
 			connectedMAC=null;
+			/** 通知侦听器连接中断 */
 			probers.onDisconnect();
 		}
 	};
@@ -137,6 +139,7 @@ public class SampleConnector implements IMessageAdapter<String>, RequestValidato
 		AtomicReference<String> clientIDRef = new  AtomicReference<>();
 		try{
 			requestValidator.validate(connstr, clientIDRef);
+			/** 通知侦听器连接创建 */
 			probers.onConnect();
 			String reqMAC = clientIDRef.get();
 			checkState(!Strings.isNullOrEmpty(reqMAC),"VALIDATE FAIL");

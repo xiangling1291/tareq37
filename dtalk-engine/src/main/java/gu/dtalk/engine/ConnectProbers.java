@@ -2,6 +2,12 @@ package gu.dtalk.engine;
 
 import java.util.LinkedHashSet;
 
+/**
+ * DTALK连接侦听器管理器<br>
+ * 实现支持多个{@link ConnectProber}实例
+ * @author guyadong
+ *
+ */
 public class ConnectProbers extends LinkedHashSet<ConnectProber>implements ConnectProber{
 	private static final long serialVersionUID = 1L;
 
