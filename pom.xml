@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.gitee.l0km</groupId>
 	<artifactId>dtalk</artifactId>
-	<version>0.6.2-SNAPSHOT</version>
+	<version>0.6.2</version>
 	<packaging>pom</packaging>
 
 	<name>dtalk</name>
