@@ -522,6 +522,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <thead>
 <tr>
 	<th align="left">TYPE</th>
+	<th align="left">JSON type for <code>value/defaultValue</code> field</th>
 	<th align="left">说明</th>
 	<th align="left">Java类</th>
 </tr>
@@ -529,81 +530,97 @@ document.addEventListener("DOMContentLoaded", function() {
 <tbody>
 <tr>
 	<td align="left">STRING</td>
+	<td align="left">string</td>
 	<td align="left">任意字符串</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/StringOption.java">gu.dtalk.StringOption</a></td>
 </tr>
 <tr>
 	<td align="left">INTEGER</td>
+	<td align="left">number</td>
 	<td align="left">整数</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/IntOption.java">gu.dtalk.IntOption</a></td>
 </tr>
 <tr>
 	<td align="left">FLOAT</td>
+	<td align="left">number</td>
 	<td align="left">浮点数</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/FloatOption.java">gu.dtalk.FloatOption</a></td>
 </tr>
 <tr>
 	<td align="left">BOOL</td>
+	<td align="left">bool</td>
 	<td align="left">布尔型 true/false 0/1</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/BoolOption.java">gu.dtalk.BoolOption</a></td>
 </tr>
 <tr>
 	<td align="left">DATE</td>
+	<td align="left">string</td>
 	<td align="left">日期 支持的格式:yyyy-MM-dd HH:mm:ss</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/DateOption.java">gu.dtalk.DateOption</a></td>
 </tr>
 <tr>
 	<td align="left">URL</td>
+	<td align="left">string</td>
 	<td align="left">url字符串</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/UrlOption.java">gu.dtalk.UrlOption</a></td>
 </tr>
 <tr>
 	<td align="left">PASSWORD</td>
+	<td align="left">string</td>
 	<td align="left">密码字符串</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/PasswordOption.java">gu.dtalk.PasswordOption</a></td>
 </tr>
 <tr>
 	<td align="left">EMAIL</td>
+	<td align="left">string</td>
 	<td align="left">e-mail地址</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/StringOption.java">gu.dtalk.StringOption</a></td>
 </tr>
 <tr>
 	<td align="left">MPHONE</td>
+	<td align="left">string</td>
 	<td align="left">手机号码(11位)</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/StringOption.java">gu.dtalk.StringOption</a></td>
 </tr>
 <tr>
 	<td align="left">IDNUM</td>
+	<td align="left">string</td>
 	<td align="left">身份证号(15位、18位数字)</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/StringOption.java">gu.dtalk.StringOption</a></td>
 </tr>
 <tr>
 	<td align="left">BASE64</td>
+	<td align="left">string</td>
 	<td align="left">base64 格式二进制数据</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/Base64Option.java">gu.dtalk.Base64Option</a></td>
 </tr>
 <tr>
 	<td align="left">MAC</td>
-	<td align="left">网卡MAC地址二进制数据</td>
+	<td align="left">string</td>
+	<td align="left">6字节网卡MAC地址,保存为base64字符串即8 characters，如 'ODg4ODg4',不是'192.168.0.100'</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/MACOption.java">gu.dtalk.MACOption</a></td>
 </tr>
 <tr>
 	<td align="left">IP</td>
-	<td align="left">IP地址二进制数据</td>
+	<td align="left">string</td>
+	<td align="left">4字节IP地址,保存为base64字符串即8 characters，如 'ODg4OA==',不是'D0:17:C2:D2:3F:AE'</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/IPv4Option.java">gu.dtalk.IPv4Option</a></td>
 </tr>
 <tr>
 	<td align="left">IMAGE</td>
+	<td align="left">string</td>
 	<td align="left">base64 格式JPEG/BMP/PNG格式图像</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/ImageOption.java">gu.dtalk.ImageOption</a></td>
 </tr>
 <tr>
 	<td align="left">MULTICHECK</td>
+	<td align="left">array</td>
 	<td align="left">多选列表</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/CheckOption.java">gu.dtalk.CheckOption</a></td>
 </tr>
 <tr>
 	<td align="left">SWITCH</td>
+	<td align="left">number</td>
 	<td align="left">单选列表</td>
 	<td align="left"><a href="../dtalk-base/src/main/java/gu/dtalk/SwitchOption.java">gu.dtalk.SwitchOption</a></td>
 </tr>
@@ -625,6 +642,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <thead>
 <tr>
 	<th align="left">字段名</th>
+	<th align="left">JSON type</th>
 	<th align="left">说明</th>
 	<th align="left">MENU</th>
 	<th align="left">OPTION</th>
@@ -634,13 +652,15 @@ document.addEventListener("DOMContentLoaded", function() {
 <tbody>
 <tr>
 	<td align="left">catalog</td>
-	<td align="left">item分类类型，可选的值MENU,OPTION,CMD,参见《(菜单)条目类型说明》</td>
+	<td align="left">string</td>
+	<td align="left">item分类类型，可选的值<code>MENU,OPTION,CMD</code>,参见《(菜单)条目类型说明》</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
 </tr>
 <tr>
 	<td align="left">name</td>
+	<td align="left">string</td>
 	<td align="left">条目名称([a-zA-Z0-9_],不允许有空格)</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
@@ -648,27 +668,31 @@ document.addEventListener("DOMContentLoaded", function() {
 </tr>
 <tr>
 	<td align="left">uiName</td>
-	<td align="left">条目的用户界面显示名称,如果不指定则使用{@link #name}</td>
+	<td align="left">string</td>
+	<td align="left">条目的用户界面显示名称,如果不指定则使用<code>name</code></td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
 </tr>
 <tr>
 	<td align="left">path</td>
-	<td align="left">当前对象在整个菜单树形结构中的全路径</td>
+	<td align="left">string</td>
+	<td align="left">当前条目在整个菜单树形结构中以'/'分割子节点名字(name)的全路径,如'/device/mac',顶级根菜单(忽略<code>name</code>)的路径为'/',</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
 </tr>
 <tr>
 	<td align="left">container</td>
-	<td align="left">是否为容器(可包含item),当catalog为MENU,CMD时为true</td>
+	<td align="left">bool</td>
+	<td align="left">是否为容器(可包含item),当<code>catalog</code>为<code>MENU,CMD</code>时为true</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
 </tr>
 <tr>
 	<td align="left">description</td>
+	<td align="left">string</td>
 	<td align="left">对当前条目的说明文字，默认值：空</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
@@ -676,6 +700,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </tr>
 <tr>
 	<td align="left">disable</td>
+	<td align="left">bool</td>
 	<td align="left">当前条目是否禁用,默认值:false</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
@@ -683,6 +708,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </tr>
 <tr>
 	<td align="left">hide</td>
+	<td align="left">bool</td>
 	<td align="left">当前条目是否在用户界面中隐藏(不显示),默认值:false</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
@@ -690,20 +716,23 @@ document.addEventListener("DOMContentLoaded", function() {
 </tr>
 <tr>
 	<td align="left">childs</td>
-	<td align="left">所有子条目,当catalog为OPTION时，恒为空</td>
+	<td align="left">bool</td>
+	<td align="left">所有子条目,当<code>catalog</code>为<code>OPTION</code>时，恒为空</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
 </tr>
 <tr>
 	<td align="left">empty</td>
-	<td align="left">是否有子条目,即childs中元素不为0,当catalog为OPTION时,恒为0</td>
+	<td align="left">bool</td>
+	<td align="left">是否有子条目,没有<code>childs</code>或<code>childs</code>中元素为0时为true,当<code>catalog</code>为<code>OPTION</code>时,恒为true</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
 </tr>
 <tr>
 	<td align="left">canceled</td>
+	<td align="left">bool</td>
 	<td align="left">取消正在执行的设备命令,为true时，指示取消正在执行的设备命令,仅对支持交互的设备命令有效</td>
 	<td align="left"></td>
 	<td align="left"></td>
@@ -711,20 +740,23 @@ document.addEventListener("DOMContentLoaded", function() {
 </tr>
 <tr>
 	<td align="left">needReset</td>
-	<td align="left">会不会导致应用重启</td>
+	<td align="left">bool</td>
+	<td align="left">执行<code>CMD</code>/修改<code>OPTION</code>的值会不会导致设备重启</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
 	<td align="left">Y</td>
 </tr>
 <tr>
 	<td align="left">needRefresh</td>
-	<td align="left">修改OPTION值后前端要不要重新获取数据</td>
+	<td align="left">bool</td>
+	<td align="left">修改<code>OPTION</code>值后前端要不要重新获取数据</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
 	<td align="left"></td>
 </tr>
 <tr>
 	<td align="left">type</td>
+	<td align="left">string</td>
 	<td align="left">选项的类型,可选的值参见《OPTION类型说明》</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
@@ -732,13 +764,15 @@ document.addEventListener("DOMContentLoaded", function() {
 </tr>
 <tr>
 	<td align="left">readOnly</td>
-	<td align="left">是否为只读的选项,当catalog为CMD时,恒为false</td>
+	<td align="left">bool</td>
+	<td align="left">是否为只读的选项,当<code>catalog</code>为<code>CMD</code>时,恒为false</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
 	<td align="left"></td>
 </tr>
 <tr>
 	<td align="left">required</td>
+	<td align="left">bool</td>
 	<td align="left">是否为必须的选项，默认值:false</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
@@ -746,20 +780,23 @@ document.addEventListener("DOMContentLoaded", function() {
 </tr>
 <tr>
 	<td align="left">value</td>
-	<td align="left">选项值</td>
+	<td align="left">any</td>
+	<td align="left">选项值,根据<code>OPTION</code>的类型不同可以有不同的类型</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
 	<td align="left"></td>
 </tr>
 <tr>
 	<td align="left">defaultValue</td>
-	<td align="left">选项默认值</td>
+	<td align="left">any</td>
+	<td align="left">选项默认值,根据<code>OPTION</code>的类型不同可以有不同的类型</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
 	<td align="left"></td>
 </tr>
 <tr>
 	<td align="left">regex</td>
+	<td align="left">string</td>
 	<td align="left">当前选项的字符串合法性检查正则表达式</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
@@ -767,49 +804,67 @@ document.addEventListener("DOMContentLoaded", function() {
 </tr>
 <tr>
 	<td align="left">fieldRequire</td>
-	<td align="left">DATE Option设备端要求的日期类型</td>
+	<td align="left">number</td>
+	<td align="left"><code>DATE Option</code>设备端要求的日期类型</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
 	<td align="left"></td>
 </tr>
 <tr>
 	<td align="left">precision</td>
-	<td align="left">FLOAT Option 显示精度:小数点位数</td>
+	<td align="left">number</td>
+	<td align="left"><code>FLOAT Option</code> 显示精度:小数点位数</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
 	<td align="left"></td>
 </tr>
 <tr>
 	<td align="left">options</td>
-	<td align="left">MULTICHECK,SWITCH 可选项列表</td>
+	<td align="left">object</td>
+	<td align="left"><code>MULTICHECK</code>,<code>SWITCH</code> 可选项列表</td>
+	<td align="left"></td>
+	<td align="left">Y</td>
+	<td align="left"></td>
+</tr>
+<tr>
+	<td align="left">available</td>
+	<td align="left">array</td>
+	<td align="left">已知可用的的值列表</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
 	<td align="left"></td>
 </tr>
 <tr>
 	<td align="left">width</td>
-	<td align="left">IMAGE Option 图像宽度</td>
+	<td align="left">number</td>
+	<td align="left"><code>IMAGE Option</code> 图像宽度</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
 	<td align="left"></td>
 </tr>
 <tr>
 	<td align="left">height</td>
-	<td align="left">IMAGE Option 图像高度</td>
+	<td align="left">number</td>
+	<td align="left"><code>IMAGE Option</code> 图像高度</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
 	<td align="left"></td>
 </tr>
 <tr>
 	<td align="left">suffix</td>
-	<td align="left">IMAGE Option 图像格式</td>
+	<td align="left">number</td>
+	<td align="left"><code>IMAGE Option</code> 图像格式</td>
 	<td align="left"></td>
 	<td align="left">Y</td>
 	<td align="left"></td>
 </tr>
 </tbody>
 </table>
-<p>NOTE:上表中后三列为Y，代表此字段适合该类型的菜单条目</p>
+<p><strong>NOTE</strong>:</p>
+<ul>
+<li>上表中后三列为Y，代表此字段适合该分类的菜单条目</li>
+<li><code>options</code>目前使用允许的类型是<code>object</code>,未来可能会允许使用<code>array</code>,以保持列表元素顺序</li>
+</ul>
 <h3>创建菜单</h3>
 <p>dtalk提供了<a href="../dtalk-base/src/main/java/gu/dtalk/ItemBuilder.java">gu.dtalk.ItemBuilder</a>用于创建menu和cmd,提供了<a href="..dtalk-base/src/main/java/gu/dtalk/OptionBuilder.java">gu.dtalk.OptionBuilder</a></p>
 <p>如下是创建前面的示例的菜单的代码：</p>

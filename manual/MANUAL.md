@@ -196,24 +196,24 @@ dtalk默认的实现方式是密码验证
 
 ### 选项(OPTION)类型说明
 
-|TYPE|说明|Java类|
-|:---------|:-----------------|:-|
-|STRING|任意字符串|[gu.dtalk.StringOption](../dtalk-base/src/main/java/gu/dtalk/StringOption.java)|
-|INTEGER|整数|[gu.dtalk.IntOption](../dtalk-base/src/main/java/gu/dtalk/IntOption.java)|
-|FLOAT|浮点数|[gu.dtalk.FloatOption](../dtalk-base/src/main/java/gu/dtalk/FloatOption.java)|
-|BOOL|布尔型 true/false 0/1|[gu.dtalk.BoolOption](../dtalk-base/src/main/java/gu/dtalk/BoolOption.java)|
-|DATE|日期 支持的格式:yyyy-MM-dd HH:mm:ss|[gu.dtalk.DateOption](../dtalk-base/src/main/java/gu/dtalk/DateOption.java)|
-|URL|url字符串|[gu.dtalk.UrlOption](../dtalk-base/src/main/java/gu/dtalk/UrlOption.java)|
-|PASSWORD|密码字符串|[gu.dtalk.PasswordOption](../dtalk-base/src/main/java/gu/dtalk/PasswordOption.java)|
-|EMAIL|e-mail地址|[gu.dtalk.StringOption](../dtalk-base/src/main/java/gu/dtalk/StringOption.java)|
-|MPHONE|手机号码(11位)|[gu.dtalk.StringOption](../dtalk-base/src/main/java/gu/dtalk/StringOption.java)|
-|IDNUM|身份证号(15位、18位数字)|[gu.dtalk.StringOption](../dtalk-base/src/main/java/gu/dtalk/StringOption.java)|
-|BASE64|base64 格式二进制数据|[gu.dtalk.Base64Option](../dtalk-base/src/main/java/gu/dtalk/Base64Option.java)|
-|MAC|网卡MAC地址二进制数据|[gu.dtalk.MACOption](../dtalk-base/src/main/java/gu/dtalk/MACOption.java)|
-|IP|IP地址二进制数据|[gu.dtalk.IPv4Option](../dtalk-base/src/main/java/gu/dtalk/IPv4Option.java)|
-|IMAGE|base64 格式JPEG/BMP/PNG格式图像|[gu.dtalk.ImageOption](../dtalk-base/src/main/java/gu/dtalk/ImageOption.java)|
-|MULTICHECK|多选列表|[gu.dtalk.CheckOption](../dtalk-base/src/main/java/gu/dtalk/CheckOption.java)|
-|SWITCH|单选列表|[gu.dtalk.SwitchOption](../dtalk-base/src/main/java/gu/dtalk/SwitchOption.java)|
+|TYPE|JSON type for `value/defaultValue` field|说明|Java类|
+|:---------|:-|:-----------------|:-|
+|STRING|string|任意字符串|[gu.dtalk.StringOption](../dtalk-base/src/main/java/gu/dtalk/StringOption.java)|
+|INTEGER|number|整数|[gu.dtalk.IntOption](../dtalk-base/src/main/java/gu/dtalk/IntOption.java)|
+|FLOAT|number|浮点数|[gu.dtalk.FloatOption](../dtalk-base/src/main/java/gu/dtalk/FloatOption.java)|
+|BOOL|bool|布尔型 true/false 0/1|[gu.dtalk.BoolOption](../dtalk-base/src/main/java/gu/dtalk/BoolOption.java)|
+|DATE|string|日期 支持的格式:yyyy-MM-dd HH:mm:ss|[gu.dtalk.DateOption](../dtalk-base/src/main/java/gu/dtalk/DateOption.java)|
+|URL|string|url字符串|[gu.dtalk.UrlOption](../dtalk-base/src/main/java/gu/dtalk/UrlOption.java)|
+|PASSWORD|string|密码字符串|[gu.dtalk.PasswordOption](../dtalk-base/src/main/java/gu/dtalk/PasswordOption.java)|
+|EMAIL|string|e-mail地址|[gu.dtalk.StringOption](../dtalk-base/src/main/java/gu/dtalk/StringOption.java)|
+|MPHONE|string|手机号码(11位)|[gu.dtalk.StringOption](../dtalk-base/src/main/java/gu/dtalk/StringOption.java)|
+|IDNUM|string|身份证号(15位、18位数字)|[gu.dtalk.StringOption](../dtalk-base/src/main/java/gu/dtalk/StringOption.java)|
+|BASE64|string|base64 格式二进制数据|[gu.dtalk.Base64Option](../dtalk-base/src/main/java/gu/dtalk/Base64Option.java)|
+|MAC|string|6字节网卡MAC地址,保存为base64字符串即8 characters，如 'ODg4ODg4',不是'192.168.0.100'|[gu.dtalk.MACOption](../dtalk-base/src/main/java/gu/dtalk/MACOption.java)|
+|IP|string|4字节IP地址,保存为base64字符串即8 characters，如 'ODg4OA==',不是'D0:17:C2:D2:3F:AE'|[gu.dtalk.IPv4Option](../dtalk-base/src/main/java/gu/dtalk/IPv4Option.java)|
+|IMAGE|string|base64 格式JPEG/BMP/PNG格式图像|[gu.dtalk.ImageOption](../dtalk-base/src/main/java/gu/dtalk/ImageOption.java)|
+|MULTICHECK|array|多选列表|[gu.dtalk.CheckOption](../dtalk-base/src/main/java/gu/dtalk/CheckOption.java)|
+|SWITCH|number|单选列表|[gu.dtalk.SwitchOption](../dtalk-base/src/main/java/gu/dtalk/SwitchOption.java)|
 
 #### 验证器(validator)
 
@@ -229,37 +229,40 @@ dtalk默认的实现方式是密码验证
 
 ### (菜单)条目定义字段
 
-|字段名|说明|MENU|OPTION|CMD
-|:---------|:-----------------|:-|:-|:-|
-|catalog|item分类类型，可选的值MENU,OPTION,CMD,参见《(菜单)条目类型说明》|Y|Y|Y|
-|name|条目名称([a-zA-Z0-9_],不允许有空格)|Y|Y|Y|
-|uiName|条目的用户界面显示名称,如果不指定则使用{@link #name}|Y|Y|Y|
-|path|当前对象在整个菜单树形结构中的全路径|Y|Y|Y|
-|container|是否为容器(可包含item),当catalog为MENU,CMD时为true|Y|Y|Y|
-|description|对当前条目的说明文字，默认值：空|Y|Y|Y|
-|disable|当前条目是否禁用,默认值:false|Y|Y|Y|
-|hide|当前条目是否在用户界面中隐藏(不显示),默认值:false|Y|Y|Y|
-|childs|所有子条目,当catalog为OPTION时，恒为空|Y|Y|Y|
-|empty| 是否有子条目,即childs中元素不为0,当catalog为OPTION时,恒为0|Y|Y|Y|
-|canceled| 取消正在执行的设备命令,为true时，指示取消正在执行的设备命令,仅对支持交互的设备命令有效|||Y|
-|needReset|会不会导致应用重启||Y|Y|
-|needRefresh|修改OPTION值后前端要不要重新获取数据||Y||
-|type|选项的类型,可选的值参见《OPTION类型说明》||Y||
-|readOnly|是否为只读的选项,当catalog为CMD时,恒为false||Y||
-|required|是否为必须的选项，默认值:false||Y||
-|value|选项值||Y||
-|defaultValue|选项默认值||Y||
-|regex|当前选项的字符串合法性检查正则表达式||Y||
-|fieldRequire|DATE Option设备端要求的日期类型||Y||
-|precision|FLOAT Option 显示精度:小数点位数||Y||
-|options|MULTICHECK,SWITCH 可选项列表||Y||
-|width|IMAGE Option 图像宽度||Y||
-|height|IMAGE Option 图像高度||Y||
-|suffix|IMAGE Option 图像格式||Y||
+|字段名|JSON type|说明|MENU|OPTION|CMD
+|:---------|:-|:-----------------|:-|:-|:-|
+|catalog|string|item分类类型，可选的值`MENU,OPTION,CMD`,参见《(菜单)条目类型说明》|Y|Y|Y|
+|name|string|条目名称([a-zA-Z0-9_],不允许有空格)|Y|Y|Y|
+|uiName|string|条目的用户界面显示名称,如果不指定则使用`name`|Y|Y|Y|
+|path|string|当前条目在整个菜单树形结构中以'/'分割子节点名字(name)的全路径,如'/device/mac',顶级根菜单(忽略`name`)的路径为'/',|Y|Y|Y|
+|container|bool|是否为容器(可包含item),当`catalog`为`MENU,CMD`时为true|Y|Y|Y|
+|description|string|对当前条目的说明文字，默认值：空|Y|Y|Y|
+|disable|bool|当前条目是否禁用,默认值:false|Y|Y|Y|
+|hide|bool|当前条目是否在用户界面中隐藏(不显示),默认值:false|Y|Y|Y|
+|childs|bool|所有子条目,当`catalog`为`OPTION`时，恒为空|Y|Y|Y|
+|empty|bool| 是否有子条目,没有`childs`或`childs`中元素为0时为true,当`catalog`为`OPTION`时,恒为true|Y|Y|Y|
+|canceled|bool| 取消正在执行的设备命令,为true时，指示取消正在执行的设备命令,仅对支持交互的设备命令有效|||Y|
+|needReset|bool|执行`CMD`/修改`OPTION`的值会不会导致设备重启||Y|Y|
+|needRefresh|bool|修改`OPTION`值后前端要不要重新获取数据||Y||
+|type|string|选项的类型,可选的值参见《OPTION类型说明》||Y||
+|readOnly|bool|是否为只读的选项,当`catalog`为`CMD`时,恒为false||Y||
+|required|bool|是否为必须的选项，默认值:false||Y||
+|value|any|选项值,根据`OPTION`的类型不同可以有不同的类型||Y||
+|defaultValue|any|选项默认值,根据`OPTION`的类型不同可以有不同的类型||Y||
+|regex|string|当前选项的字符串合法性检查正则表达式||Y||
+|fieldRequire|number|`DATE Option`设备端要求的日期类型||Y||
+|precision|number|`FLOAT Option` 显示精度:小数点位数||Y||
+|options|object|`MULTICHECK`,`SWITCH` 可选项列表||Y||
+|available|array|已知可用的的值列表||Y||
+|width|number|`IMAGE Option` 图像宽度||Y||
+|height|number|`IMAGE Option` 图像高度||Y||
+|suffix|number|`IMAGE Option` 图像格式||Y||
 
 
-NOTE:上表中后三列为Y，代表此字段适合该类型的菜单条目
+__NOTE__:
 
+- 上表中后三列为Y，代表此字段适合该分类的菜单条目
+- `options`目前使用允许的类型是`object`,未来可能会允许使用`array`,以保持列表元素顺序
 
 ### 创建菜单
 
